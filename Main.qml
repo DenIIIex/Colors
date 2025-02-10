@@ -1,6 +1,7 @@
-import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
 import BallsModel 0.1
 
 Window {
@@ -32,7 +33,7 @@ Window {
 					Layout.fillWidth: true
 					text: "GAME OVER"
 					color: "#00ADA9"
-					font.pixelSize: height / 4
+					font.pixelSize:  parent.height / 3 / 4
 					font.bold: true
 					verticalAlignment: Qt.AlignVCenter
 					horizontalAlignment: Qt.AlignHCenter
@@ -43,7 +44,7 @@ Window {
 					verticalAlignment: Qt.AlignVCenter
 					horizontalAlignment: Qt.AlignHCenter
 					text: "NEW GAME"
-					font.pixelSize: height / 3
+					font.pixelSize: parent.height / 5 / 3
 					font.bold: true
 					color: "white"
 					background: Rectangle {
@@ -155,7 +156,6 @@ Window {
 							scoreTimer.start()
 						}
 						onGameOver: {
-							console.log("##")
 							gameOverPopup.open()
 						}
 					}
@@ -273,7 +273,6 @@ Window {
 							onClicked: {
 								mod.checkTurn(del.bInd, del.x, del.y,
 											  del.bColor)
-								//console.log(del.x, del.y,row,column)
 							}
 						}
 					}

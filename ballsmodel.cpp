@@ -139,10 +139,10 @@ void BallsModel::checkTable(bool isPlayerTurn) {
 			}
 		}
 		for (auto t : b) {
-			auto l = get<2>(t);
-			auto r = get<3>(t);
-			if (get<0>(t) == -1) {
-				auto col = get<1>(t);
+			auto l = std::get<2>(t);
+			auto r = std::get<3>(t);
+			if (std::get<0>(t) == -1) {
+				auto col = std::get<1>(t);
 				for (size_t i = l; i <= r; i++) {
 					_balls[i][col].isVisible = false;
 					_emptyIndex.push_back(_balls[i][col].index);
@@ -151,7 +151,7 @@ void BallsModel::checkTable(bool isPlayerTurn) {
 				}
 				setScore(_score + r - l + 1);
 			} else {
-				auto row = get<0>(t);
+				auto row = std::get<0>(t);
 				for (size_t i = l; i <= r; i++) {
 					_balls[row][i].isVisible = false;
 					_emptyIndex.push_back(_balls[row][i].index);
